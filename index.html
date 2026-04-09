@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" id="html-tag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Azolla Cultivation - Image Recognition & Full Diagnosis Guide">
+    <title id="t_page_title">Azolla Diagnosis & Care Guide</title>
+    <!-- Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="top-nav">
+        <select id="lang-select" class="lang-dropdown">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="ml">മലയാളം (Malayalam)</option>
+            <option value="es">Español (Spanish)</option>
+        </select>
+    </div>
+
+    <header class="hero">
+        <div class="hero-content">
+            <div class="badge" id="t_badge">Complete Diagnostic Tool</div>
+            <h1 id="t_hero_title">Azolla Cultivation</h1>
+            <p id="t_hero_subtitle">Image Recognition &amp; Health Diagnosis Guide</p>
+        </div>
+        <div class="hero-bg-accent"></div>
+    </header>
+
+    <main class="container">
+        <!-- Quick Daily Checklist Section -->
+        <section class="checklist-section">
+            <div class="checklist-card glass-panel">
+                <h2><span class="icon">✓</span> <span id="t_chk_title">Quick Daily Checklist</span></h2>
+                <p class="checklist-subtitle" id="t_chk_sub">Every morning, check these 5 things by looking at your bed:</p>
+                
+                <ul class="checklist-items">
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="label-text" id="t_chk_1"><strong>Color</strong> — Is it green? Or turning yellow, brown, black?</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="label-text" id="t_chk_2"><strong>Coverage</strong> — Is it spreading evenly or patchy?</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="label-text" id="t_chk_3"><strong>Water</strong> — Is it clean? Does it smell?</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="label-text" id="t_chk_4"><strong>Pests</strong> — Any snails, insects on the surface?</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="label-text" id="t_chk_5"><strong>Level</strong> — Is water between 10–15 cm?</span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="checklist-alert" id="t_chk_alert">
+                    If any answer is "no" or "something looks wrong" — find the matching stage below!
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Image Analysis Tool -->
+        <section class="ai-analysis-section">
+            <div class="glass-panel upload-container">
+                <h2 id="t_ai_title">🤖 AI Azolla Analyzer</h2>
+                <p class="text-muted" id="t_ai_sub">Upload a photo of your Azolla bed to get an instant diagnosis!</p>
+                
+                <div class="drop-zone" id="drop-zone">
+                    <span class="drop-icon">📸</span>
+                    <p id="t_ai_drop">Drag & Drop your image here or <span class="text-primary font-bold">Browse</span></p>
+                    <input type="file" id="file-input" accept="image/*" class="file-input">
+                </div>
+
+                <div id="analysis-loader" class="loader-container hidden">
+                    <div class="scanner-bar"></div>
+                    <p id="t_ai_scan">Analyzing pixels...</p>
+                </div>
+
+                <div id="analysis-result" class="result-container hidden">
+                    <!-- Results injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Diagnosis Grid -->
+        <section class="diagnostic-grid" id="diagnostic-grid">
+            <!-- Cards rendered via JS -->
+        </section>
+
+        <!-- Summary Table Section -->
+        <section class="summary-section">
+            <div class="glass-panel summary-table-container">
+                <h2 id="t_tbl_title">Visual Identification Summary</h2>
+                <table class="summary-table">
+                    <thead>
+                        <tr>
+                            <th id="t_th_color">Image Color</th>
+                            <th id="t_th_growth">Growth Pattern</th>
+                            <th id="t_th_prob">Most Likely Problem</th>
+                            <th id="t_th_act">First Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="summary-tbody">
+                        <!-- Rendered via JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Detailed Diagnosis -->
+    <div id="diagnosis-modal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content glass-panel" role="dialog" aria-modal="true">
+            <button class="close-btn" aria-label="Close modal">&times;</button>
+            <div id="modal-body" class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
