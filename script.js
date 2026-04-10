@@ -544,37 +544,44 @@ document.addEventListener("DOMContentLoaded", () => {
             predictedStageIndex = 6; 
         }
         
-        displayResult(translations[currentLang].data[predictedStageIndex]);
+        displayResult(translations[currentLang].data[predictedStageIndex], { r: r_avg, g: g_avg, b: b_avg });
     }
 
-    function displayResult(stageData) {
+    function displayResult(stageData, colors = { r: 100, g: 100, b: 100 }) {
         const ui = translations[currentLang].ui;
         
-        let n = 0, p = 0, k = 0, c = 0;
+        let n = "", p = "", k = "", c = "";
+
+        // create pseudo-random values between 0 and 1 using image colors
+        let r1 = ((colors.r * 11) + (colors.g * 13) + (colors.b * 17)) % 100 / 100;
+        let r2 = ((colors.r * 7) + (colors.g * 19) + (colors.b * 23)) % 100 / 100;
+        let r3 = ((colors.r * 5) + (colors.g * 29) + (colors.b * 31)) % 100 / 100;
+        let r4 = ((colors.r * 3) + (colors.g * 37) + (colors.b * 41)) % 100 / 100;
+
         switch(stageData.themeId) {
             case 1:
-                n = (4.0 + Math.random()*1.0).toFixed(2);
-                p = (0.5 + Math.random()*0.4).toFixed(2);
-                k = (2.0 + Math.random()*2.0).toFixed(2);
-                c = (38.0 + Math.random()*4.0).toFixed(2);
+                n = `${(4.0 + r1*0.5).toFixed(1)} - ${(4.8 + r1*0.5).toFixed(1)}`;
+                p = `${(0.5 + r2*0.2).toFixed(2)} - ${(0.8 + r2*0.2).toFixed(2)}`;
+                k = `${(2.0 + r3*0.5).toFixed(1)} - ${(2.8 + r3*0.5).toFixed(1)}`;
+                c = `${(38.0 + r4*2.0).toFixed(1)} - ${(41.0 + r4*2.0).toFixed(1)}`;
                 break;
             case 2:
-                n = (2.0 + Math.random()*1.0).toFixed(2);
-                p = (0.2 + Math.random()*0.2).toFixed(2);
-                k = (1.0 + Math.random()*1.0).toFixed(2);
-                c = (35.0 + Math.random()*3.0).toFixed(2);
+                n = `${(2.0 + r1*0.5).toFixed(1)} - ${(2.6 + r1*0.5).toFixed(1)}`;
+                p = `${(0.2 + r2*0.1).toFixed(2)} - ${(0.35 + r2*0.1).toFixed(2)}`;
+                k = `${(1.0 + r3*0.3).toFixed(1)} - ${(1.5 + r3*0.3).toFixed(1)}`;
+                c = `${(35.0 + r4*2.0).toFixed(1)} - ${(37.0 + r4*2.0).toFixed(1)}`;
                 break;
             case 3:
-                n = (3.0 + Math.random()*1.0).toFixed(2);
-                p = (0.4 + Math.random()*0.2).toFixed(2);
-                k = (1.5 + Math.random()*1.0).toFixed(2);
-                c = (30.0 + Math.random()*5.0).toFixed(2);
+                n = `${(3.0 + r1*0.5).toFixed(1)} - ${(3.6 + r1*0.5).toFixed(1)}`;
+                p = `${(0.4 + r2*0.1).toFixed(2)} - ${(0.55 + r2*0.1).toFixed(2)}`;
+                k = `${(1.5 + r3*0.3).toFixed(1)} - ${(2.0 + r3*0.3).toFixed(1)}`;
+                c = `${(30.0 + r4*2.0).toFixed(1)} - ${(33.0 + r4*2.0).toFixed(1)}`;
                 break;
             default:
-                n = (3.5 + Math.random()*1.0).toFixed(2);
-                p = (0.4 + Math.random()*0.3).toFixed(2);
-                k = (1.8 + Math.random()*1.0).toFixed(2);
-                c = (36.0 + Math.random()*4.0).toFixed(2);
+                n = `${(3.2 + r1*0.5).toFixed(1)} - ${(3.8 + r1*0.5).toFixed(1)}`;
+                p = `${(0.3 + r2*0.1).toFixed(2)} - ${(0.5 + r2*0.1).toFixed(2)}`;
+                k = `${(1.4 + r3*0.4).toFixed(1)} - ${(2.0 + r3*0.4).toFixed(1)}`;
+                c = `${(34.0 + r4*2.0).toFixed(1)} - ${(38.0 + r4*2.0).toFixed(1)}`;
                 break;
         }
 
